@@ -38,27 +38,24 @@
 
     input, select, textarea, button {
   width: 100%;
-  padding: 0.8rem 1rem;
-  margin-top: 0.5rem;
+  padding: 0.6rem 0.8rem;           /* 🔸 ลด padding รอบตัว */
+  margin-top: 0.4rem;
   border: 2px solid #dee2e6;
-  border-radius: 12px;
-  font-size: 1.2rem;
+  border-radius: 10px;
+  font-size: 1.05rem;               /* 🔸 ลดขนาดฟอนต์เล็กลงนิด */
   font-family: 'Mali', sans-serif;
-  box-sizing: border-box;
   line-height: 1.4;
+  box-sizing: border-box;
   transition: all 0.3s ease;
 }
 
+select {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+}
 
-      select {
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  
-
-    }
-
-    textarea {
-      resize: vertical;
-    }
+textarea {
+  resize: vertical;
+} 
 
     button {
       background-color: #ff69b4;
