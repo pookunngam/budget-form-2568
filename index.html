@@ -6,88 +6,74 @@
   <link href="https://fonts.googleapis.com/css2?family=Mali&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Mali', sans-serif;
-      background: linear-gradient(135deg, #fce3ec, #ffe6fa);
+        font-family: 'Mali', 'Prompt', sans-serif;
+      background-color: #ffeef8;
       padding: 2rem;
       max-width: 700px;
       margin: auto;
-      font-size: 1.2rem;
+      font-size: 1rem;
       line-height: 1.6;
+      color: #333;
     }
 
-    h2 {
+    h1 {
       text-align: center;
       color: #d63384;
       font-size: 2rem;
       margin-bottom: 1.5rem;
-      animation: wiggle 2s infinite;
-    }
-
-    @keyframes wiggle {
-      0%, 100% { transform: rotate(0deg); }
-      25% { transform: rotate(2deg); }
-      75% { transform: rotate(-2deg); }
     }
 
     label {
       display: block;
       margin-top: 1rem;
-      color: #6f42c1;
       font-weight: bold;
+      font-size: 1rem;
+      color: #6f42c1;
     }
 
-    input, select, textarea, button {
-  width: 100%;
-  padding: 0.6rem 0.8rem;           /* 🔸 ลด padding รอบตัว */
-  margin-top: 0.4rem;
-  border: 2px solid #dee2e6;
-  border-radius: 10px;
-  font-size: 1.05rem;               /* 🔸 ลดขนาดฟอนต์เล็กลงนิด */
-  font-family: 'Mali', sans-serif;
-  line-height: 1.4;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-}
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem 0.8rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      font-family: inherit;
+      border: 2px solid #dee2e6;
+      border-radius: 8px;
+      margin-top: 0.3rem;
+      box-sizing: border-box;
+    }
 
-select {
-  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
-}
-
-textarea {
-  resize: vertical;
+    textarea {
+      min-height: 100px;
 } 
 
     button {
       background-color: #ff69b4;
       color: white;
-      border: none;
-      margin-top: 1.5rem;
       font-weight: bold;
-      font-size: 1.2rem;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      margin-top: 2rem;
       cursor: pointer;
-      border-radius: 10px;
-      transition: transform 0.2s ease, background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.1s ease;
     }
 
     button:hover {
-      background-color: #ff1493;
-      transform: translateY(-2px);
-    }
-
-    button:active {
-      transform: scale(0.98);
+      background-color: #ff85c1;
+      transform: scale(1.03);
     }
 
     #result {
       margin-top: 1.5rem;
       text-align: center;
-      font-weight: bold;
-      color: green;
+      font-size: 1.1rem;
     }
   </style>
 </head>
 <body>
-  <h2>📋 ใบประมาณการอนุมัติแล้วจ้าาาาา 💬✨</h2>
+  <h1>📋 ใบประมาณการอนุมัติแล้วจ้าาาาา 💬✨</h1>
 
   <form id="budgetForm">
     <label>📅 วันที่</label>
