@@ -24,39 +24,32 @@
 
   label {
     display: block;
-    margin-top: 1.2rem;
+    margin-top: 1rem;
     color: #6f42c1;
-    font-weight: bold;
   }
 
   input, select, textarea, button {
     width: 100%;
-    padding: 1rem;
+    padding: 12px;
     margin-top: 0.5rem;
-    font-size: 1.2rem;
     border: 2px solid #dee2e6;
     border-radius: 8px;
-    box-sizing: border-box;
-  }
-
-  textarea {
-    resize: vertical;
+    font-size: 1.1rem;
+    font-family: 'Mali', 'Prompt', sans-serif; /* 👈 ใส่ตรงนี้ให้ทุกช่องรวมถึง select ใช้ฟอนต์เดียวกัน */
   }
 
   button {
-    background-color: #ff69b4;
-    color: white;
-    margin-top: 1.8rem;
-    cursor: pointer;
-    font-weight: bold;
-  }
-
-  #result {
-    margin-top: 1.5rem;
-    text-align: center;
-    font-weight: bold;
-    color: green;
-  }
+  background-color: #ff69b4;
+  color: white;
+  font-size: 1.2rem;
+  font-family: 'Mali', 'Prompt', sans-serif; /* ✅ ใช้ฟอนต์เดียวกัน */
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  width: 100%;
+}
 </style>
 </head>
 <body>
@@ -102,7 +95,7 @@
     <label>📁 แนบลิงก์เอกสาร PDF (Google Drive)</label>
     <input type="url" name="เอกสารแนบ" placeholder="https://drive.google.com/..." required>
 
-    <button type="submit">✅ ส่งแบบฟอร์ม</button>
+    <button type="submit">📩 ส่งเล๊ยยย อย่าพึ่งท้อมีอีกเยอะ ฮึ๊บ 💪</button>
   </form>
 
   <div id="result"></div>
