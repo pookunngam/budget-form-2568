@@ -9,62 +9,73 @@
   <style>
     body {
       font-family: 'Mali', sans-serif;
-      background: #fef9ff;
       margin: 0;
-      padding: 0;
+      padding: 2rem 1rem;
+      background: linear-gradient(-45deg, #fef6ff, #e6f7ff, #fff0f5, #f9fbe7);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
       position: relative;
-      min-height: 100vh;
-      z-index: 1;
     }
 
-    .background-lottie {
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(255, 192, 203, 0.2);
+      position: relative;
+      z-index: 2;
+    }
+
+    .lottie-bg {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       z-index: 0;
-      opacity: 0.2;
       pointer-events: none;
-    }
-
-    .container {
-      position: relative;
-      z-index: 2;
-      max-width: 650px;
-      margin: auto;
-      padding: 2rem 1rem;
+      opacity: 0.2;
     }
 
     h2 {
       text-align: center;
       color: #e91e63;
-      font-size: 1.8rem;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
 
     label {
       display: block;
       margin-top: 1rem;
       font-weight: bold;
-      color: #6a1b9a;
+      color: #6c3483;
     }
 
     input, select, textarea {
       width: 100%;
-      padding: 0.6rem;
-      margin-top: 0.3rem;
-      border: 2px solid #f8bbd0;
-      border-radius: 10px;
+      padding: 0.7rem 1rem;
+      margin-top: 0.4rem;
+      border: 2px solid #fcd2e2;
+      border-radius: 12px;
       font-size: 1rem;
+      line-height: 1.6;
       font-family: 'Mali', sans-serif;
-      background-color: #fff;
-      transition: 0.3s;
+      background-color: #fffafc;
+      transition: 0.3s ease;
     }
 
     input:focus, select:focus, textarea:focus {
       outline: none;
-      border-color: #f06292;
-      box-shadow: 0 0 6px #ea80fc;
+      border-color: #ff9ac7;
+      box-shadow: 0 0 8px #ffbde5;
     }
 
     textarea {
@@ -75,67 +86,52 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(to right, #f48fb1, #ce93d8);
+      background: linear-gradient(to right, #ffa8d3, #ff85c1);
       color: white;
       font-weight: bold;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       border: none;
-      border-radius: 16px;
-      padding: 0.9rem 1.4rem;
+      border-radius: 18px;
+      padding: 0.9rem 1.5rem;
       margin-top: 2rem;
       cursor: pointer;
-      transition: 0.3s ease;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
       gap: 0.5rem;
     }
 
     button:hover {
+      background: linear-gradient(to right, #ff79c9, #ff98d1);
       transform: scale(1.05);
-      background: linear-gradient(to right, #ec407a, #ab47bc);
     }
 
     lottie-player {
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       pointer-events: none;
     }
 
-    .floating-status {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: #fce4ec;
-      color: #880e4f;
+    #result {
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
       text-align: center;
       padding: 1rem;
-      font-size: 1rem;
-      z-index: 10;
-      display: none;
-      font-family: 'Mali', sans-serif;
-    }
-
-    @media (max-width: 480px) {
-      button {
-        font-size: 1rem;
-        padding: 0.8rem 1rem;
-      }
-
-      h2 {
-        font-size: 1.5rem;
-      }
+      border-radius: 10px;
+      background-color: #fff8fc;
+      box-shadow: 0 0 8px #ffe0ef;
+      color: #6b1c58;
     }
   </style>
 </head>
 <body>
 
-  <!-- 🎨 พื้นหลังอิโมจิ Lottie ขยับเบา ๆ -->
-  <div class="background-lottie">
-    <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_qp1q7mct.json" background="transparent" speed="1" loop autoplay></lottie-player>
+  <!-- พื้นหลังขยับแบบ Lottie -->
+  <div class="lottie-bg">
+    <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_dycy8z2i.json" background="transparent" speed="1" loop autoplay></lottie-player>
   </div>
 
   <div class="container">
-    <h2>🌈 ใบประมาณการอนุมัติแล้วจ้าาาาา</h2>
+    <h2>🍭 ใบประมาณการอนุมัติแล้วจ้าาาาา 🌤️</h2>
 
     <form onsubmit="submitForm(event)">
       <label>📅 วันที่</label>
@@ -147,15 +143,18 @@
       <label>👩‍💼 กลุ่มงาน</label>
       <select name="กลุ่มงาน" required>
         <option value="กลุ่มบริหารงานวิชาการ">กลุ่มบริหารงานวิชาการ</option>
+        <option value="กลุ่มบริหารงบประมาณ">กลุ่มบริหารงบประมาณ</option>
         <option value="กลุ่มบริหารงานทั่วไป">กลุ่มบริหารงานทั่วไป</option>
         <option value="กลุ่มบริหารงานบุคคล">กลุ่มบริหารงานบุคคล</option>
       </select>
 
-      <label>💰 ประเภทของเงิน</label>
-      <select name="ประเภทของเงิน" required>
-        <option value="งบรายได้สถานศึกษา">งบรายได้สถานศึกษา</option>
-        <option value="เงินกิจกรรมพัฒนาผู้เรียน">เงินกิจกรรมพัฒนาผู้เรียน</option>
-        <option value="อุดหนุน">อุดหนุน</option>
+      <label>💰 ประเภทงบประมาณ</label>
+      <select name="ประเภทงบประมาณ" required>
+        <option value="เงินอุดหนุนสำหรับการจัดการเรียนการสอน">เงินอุดหนุนสำหรับการจัดการเรียนการสอน</option>
+        <option value="งบเงินรายได้สถานศึกษา">งบเงินรายได้สถานศึกษา</option>
+        <option value="งบกิจกรรมพัฒนาคุณภาพผู้เรียน">งบกิจกรรมพัฒนาคุณภาพผู้เรียน</option>
+        <option value="งบบำรุงการศึกษา">งบบำรุงการศึกษา</option>
+        <option value="งบอื่น ๆ">งบอื่น ๆ</option>
       </select>
 
       <label>📌 โครงการ</label>
@@ -173,59 +172,54 @@
       <label>📎 หมายเหตุ</label>
       <textarea name="หมายเหตุ"></textarea>
 
-      <label>📁 แนบลิงก์เอกสาร (URL ใดก็ได้)</label>
+      <label>📂 แนบลิงก์เอกสาร</label>
       <input type="url" name="เอกสาร" placeholder="https://..." required>
 
       <button type="submit" id="submitBtn">
-        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_0yfsb3a1.json" background="transparent" speed="1" loop autoplay></lottie-player>
-        <span id="btnText">รีบส่งเถอะ อย่าท้อยังรออีกเยอะ สู้ค่ะ 💖</span>
+        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_j1adxtyb.json" background="transparent" speed="1" loop autoplay></lottie-player>
+        รีบส่งเลยนะ 💖 อย่าลืมแนบลิงก์!
       </button>
     </form>
+
+    <div id="result"></div>
   </div>
 
-  <!-- 📱 แถบแสดงผลลอย -->
-  <div class="floating-status" id="floatingStatus">📤 กำลังส่งข้อมูล...</div>
-
-  <!-- 🔊 เสียง -->
   <audio id="dingSound" src="https://notificationsounds.com/storage/sounds/file-sounds-1153-just-saying.mp3" preload="auto"></audio>
 
   <script>
     function submitForm(e) {
       e.preventDefault();
       const form = e.target;
-      const btnText = document.getElementById("btnText");
-      const statusBar = document.getElementById("floatingStatus");
+      const btn = document.getElementById("submitBtn");
+      const result = document.getElementById("result");
       const sound = document.getElementById("dingSound");
 
-      btnText.textContent = "⏳ กำลังส่ง...";
-      statusBar.style.display = "block";
-      statusBar.textContent = "📤 กำลังส่งข้อมูล...";
+      btn.disabled = true;
+      btn.innerHTML = "⏳ กำลังส่งข้อมูล...";
 
       const formData = new FormData(form);
-
-      fetch('https://script.google.com/macros/s/AKfycbxkP6VrHRCETI1x5GNgxRCl2RPMti66ovCJWWvPvSVrQMvz903puWKJRf3VqjYgNNp-/exec', {
-        method: 'POST',
+      fetch("https://script.google.com/macros/s/AKfycbzeYpzqsXURpKGVy2x94DVsIdUU9G0GNFtbsZqODQzB4WlEYBscINtTgwIoudS6XVrX/exec", {
+        method: "POST",
         body: formData
       })
       .then(res => res.json())
       .then(data => {
         if (data.status === "success") {
-          form.reset();
+          result.textContent = "🎉 ส่งเรียบร้อยแล้ว! ขอบคุณนะคะ 💖";
           sound.play();
-          statusBar.textContent = "🎉 ส่งสำเร็จแล้ว! ขอบคุณค่ะ 💖";
+          form.reset();
         } else {
-          statusBar.textContent = "❌ ส่งไม่สำเร็จ กรุณาลองใหม่";
+          result.textContent = "❌ เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้งค่ะ";
         }
+        btn.disabled = false;
+        btn.innerHTML = `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_j1adxtyb.json" background="transparent" speed="1" loop autoplay></lottie-player> รีบส่งเลยนะ 💖 อย่าลืมแนบลิงก์!`;
       })
       .catch(() => {
-        statusBar.textContent = "⚠️ ไม่สามารถเชื่อมต่อได้";
-      })
-      .finally(() => {
-        btnText.textContent = "รีบส่งเถอะ อย่าท้อยังรออีกเยอะ สู้ค่ะ 💖";
-        setTimeout(() => { statusBar.style.display = "none"; }, 4000);
+        result.textContent = "❌ ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ค่ะ";
+        btn.disabled = false;
+        btn.innerHTML = `<lottie-player src="https://assets10.lottiefiles.com/packages/lf20_j1adxtyb.json" background="transparent" speed="1" loop autoplay></lottie-player> รีบส่งเลยนะ 💖 อย่าลืมแนบลิงก์!`;
       });
     }
   </script>
-
 </body>
 </html>
