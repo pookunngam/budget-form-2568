@@ -2,54 +2,93 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8">
-  <title>💻 ระบบแจ้งเตือนการอนุมัติใบประมาณการ💸🤑</title>
-    
-  <link href="https://fonts.googleapis.com/css2?family=Mali&family=Prompt&display=swap" rel="stylesheet">
+  <title>📋 ระบบแจ้งเตือนการอนุมัติใบประมาณการ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Mali&display=swap" rel="stylesheet">
   <style>
-  input, select, textarea, button {
-  width: 100%;
-  padding: 1.1rem;
-  margin-top: 0.5rem;
-  border: 2px solid #dee2e6;
-  border-radius: 12px;
-  font-size: 1.2rem;
-  font-family: 'Mali', 'Prompt', sans-serif;
-  box-sizing: border-box;
-  transition: all 0.3s ease;
-}
+    body {
+      font-family: 'Mali', sans-serif;
+      background: linear-gradient(135deg, #fce3ec, #ffe6fa);
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
 
-/* ✨ เฉพาะ select ที่อยากให้ฟู ๆ */
-select {
-  background-color: #fff;
-  height: 3.2rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+    h2 {
+      text-align: center;
+      color: #d63384;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      animation: wiggle 2s infinite;
+    }
 
-/* ✨ ปุ่มขยับนิดนึงตอน hover และกด */
-button {
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  margin-top: 1.5rem;
-  font-weight: bold;
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 10px;
-  transition: transform 0.2s ease, background-color 0.3s ease;
-}
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(2deg); }
+      75% { transform: rotate(-2deg); }
+    }
 
-button:hover {
-  background-color: #ff1493;
-  transform: translateY(-2px); /* ขยับเบา ๆ */
-}
+    label {
+      display: block;
+      margin-top: 1rem;
+      color: #6f42c1;
+      font-weight: bold;
+    }
 
-button:active {
-  transform: scale(0.98); /* ยุบลงนิดตอนคลิก */
-}
-</style>
+    input, select, textarea, button {
+      width: 100%;
+      padding: 1.1rem;
+      margin-top: 0.5rem;
+      border: 2px solid #dee2e6;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-family: 'Mali', sans-serif;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
+    }
+
+    select {
+      height: 3.2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      margin-top: 1.5rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.2s ease, background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+      transform: translateY(-2px);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    #result {
+      margin-top: 1.5rem;
+      text-align: center;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
 </head>
 <body>
-  <h2>📋 ระบบแจ้งเตือนการอนุมัติใบประมาณการ</h2>
+  <h2>📋 ระบบแจ้งเตือนการอนุมัติใบประมาณการ 💬✨</h2>
+
   <form id="budgetForm">
     <label>📅 วันที่</label>
     <input type="date" name="วันที่" required>
@@ -91,10 +130,13 @@ button:active {
     <label>📁 แนบลิงก์เอกสาร PDF (Google Drive)</label>
     <input type="url" name="เอกสารแนบ" placeholder="https://drive.google.com/..." required>
 
-    <button type="submit">📩 ส่งเล๊ยยย อย่าพึ่งท้อมีอีกเยอะ ฮึ๊บ 💪</button>
+    <button type="submit">📩 ส่งข้อมูล  จะเสร็จแล้วววววว ฮึ๊บ 💪</button>
   </form>
 
   <div id="result"></div>
+
+  <!-- เสียงติ๊ง -->
+  <audio id="ding-sound" src="https://freesound.org/data/previews/341/341695_5260877-lq.mp3" preload="auto"></audio>
 
   <script>
     document.getElementById("budgetForm").addEventListener("submit", function(e) {
@@ -113,6 +155,7 @@ button:active {
       .then(res => res.json())
       .then(res => {
         if (res.status === "success") {
+          document.getElementById("ding-sound").play(); // 🔔 เสียงติ๊ง!
           document.getElementById("result").textContent = "✅ ส่งข้อมูลเรียบร้อยแล้วค่ะ";
           this.reset();
         } else {
@@ -120,10 +163,11 @@ button:active {
         }
       })
       .catch(() => {
-        document.getElementById("result").textContent = "❌ การเชื่อมต่อผิดพลาด";
+        document.getElementById("result").textContent = "❌ ไม่สามารถเชื่อมต่อได้";
       });
     });
   </script>
-  <!-- trigger deploy -->
 </body>
 </html>
+
+      
