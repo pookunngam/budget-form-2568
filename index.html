@@ -46,6 +46,7 @@
       border: 2px solid #f8bbd0;
       border-radius: 12px;
       font-size: 1rem;
+      font-family: 'Mali', sans-serif;
       background-color: #fff;
       transition: 0.3s ease;
     }
@@ -63,7 +64,8 @@
       background: linear-gradient(to right, #ff80ab, #ea80fc, #b388ff);
       color: white;
       font-weight: bold;
-      font-size: 1rem;
+      font-size: 1.25rem;
+      line-height: 1.2;
       border: none;
       border-radius: 18px;
       padding: 0.9rem 1.5rem;
@@ -163,16 +165,14 @@
       const submitBtn = document.getElementById('submitBtn');
       const result = document.getElementById("result");
 
-      // 🔒 ตรวจสอบลิงก์
       const url = form.elements["เอกสาร"].value;
       if (!url.includes("drive.google.com")) {
         result.textContent = "❌ ต้องเป็นลิงก์ Google Drive เท่านั้นนะคะ";
         return;
       }
 
-      // 🔄 ปิดปุ่มชั่วคราว
       submitBtn.disabled = true;
-      submitBtn.innerHTML = "🚀 กำลังส่ง...";
+      submitBtn.textContent = "🚀 กำลังส่ง...";
 
       const formData = new FormData(form);
 
@@ -186,16 +186,15 @@
           result.textContent = "🎉 ส่งเรียบร้อยแล้ว! ขอบคุณนะคะ 🌸";
           const audio = new Audio("https://notificationsounds.com/storage/sounds/file-sounds-1153-just-saying.mp3");
           audio.play();
-          form.reset(); // ✅ รีเซ็ตฟอร์ม
+          form.reset();
         } else {
-          result.textContent = "❌ เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง";
+          result.textContent = "❌ เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้งค่ะ";
         }
       })
       .catch(() => {
         result.textContent = "❌ ไม่สามารถเชื่อมต่อได้ค่ะ";
       })
       .finally(() => {
-        // ✅ เปิดปุ่มกลับ
         submitBtn.disabled = false;
         submitBtn.innerHTML = `
           <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_3u4gzw.json" background="transparent" speed="1" loop autoplay></lottie-player>
@@ -207,3 +206,5 @@
 
 </body>
 </html>
+
+      
