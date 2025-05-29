@@ -153,9 +153,10 @@
     btn.innerHTML = "⏳ กำลังส่งข้อมูล...";
 
     const formData = new FormData(form);
-    fetch("https://script.google.com/macros/s/AKfycbwtMpizjoRhIn4rHGE0n3X88dClV_zRbqkQ9tcx09U1k_33uvYFukY0PCI5n9UPFTc/exec", {
-      method: "POST",
-      body: formData
+    fetch("https://script.google.com/macros/s/AKfycbx9y7-UnJnAmu-XbtGCqUbiYKl0iknrTAL8DwHAG4HqhoUJ25iJq0g2m2p8pYt_7te5/exec", {
+  method: "POST",
+  body: formData
+})
     })
     .then(res => res.json())
     .then(data => {
