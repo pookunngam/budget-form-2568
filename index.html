@@ -2,84 +2,106 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>🌈 ใบประมาณการอนุมัติแล้วจ้าาาาา</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/css2?family=Mali&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <style>
     body {
       font-family: 'Mali', sans-serif;
-      background: linear-gradient(135deg, #fef6ff, #e6f7ff, #fff0f5, #f9fbe7);
+      background: linear-gradient(-45deg, #fef6ff, #e6f7ff, #fff0f5, #f9fbe7);
       background-size: 400% 400%;
-      animation: gradient 12s ease infinite;
-      margin: 0; padding: 2rem 1rem;
+      animation: gradient 15s ease infinite;
+      margin: 0;
+      padding: 2rem 1rem;
     }
+
     @keyframes gradient {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
+
     .container {
-      max-width: 720px;
+      max-width: 700px;
       margin: auto;
-      background: #fffdfd;
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 16px;
       padding: 2rem;
-      box-shadow: 0 0 15px rgba(255, 182, 193, 0.3);
+      box-shadow: 0 0 12px rgba(255, 182, 193, 0.4);
+      position: relative;
     }
+
     h2 {
       text-align: center;
-      color: #d63384;
+      color: #e91e63;
       font-size: 2rem;
     }
+
     label {
       display: block;
       margin-top: 1rem;
       font-weight: bold;
       color: #6c3483;
     }
+
     input, select, textarea {
       width: 100%;
-      padding: 0.7rem;
-      margin-top: 0.4rem;
-      font-size: 1rem;
-      border-radius: 10px;
+      padding: 0.7rem 1rem;
+      margin-top: 0.3rem;
       border: 2px solid #fcd2e2;
-      background-color: #fffafc;
+      border-radius: 12px;
+      font-size: 1rem;
       font-family: 'Mali', sans-serif;
+      background-color: #fffafc;
     }
+
     textarea {
       min-height: 60px;
     }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: #ff9ac7;
+      box-shadow: 0 0 6px #ffbde5;
+    }
+
     button {
       display: flex;
-      justify-content: center;
       align-items: center;
-      margin-top: 2rem;
-      padding: 1rem;
-      font-size: 1.2rem;
-      background: linear-gradient(to right, #ffb6c1, #ff69b4);
-      border: none;
-      border-radius: 18px;
+      justify-content: center;
+      background: linear-gradient(to right, #ffa8d3, #ff85c1);
       color: white;
       font-weight: bold;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 18px;
+      padding: 1rem;
+      margin-top: 2rem;
       cursor: pointer;
-      gap: 0.5rem;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+      gap: 0.5rem;
     }
+
     button:hover {
       transform: scale(1.05);
     }
-    #result {
-      margin-top: 1.2rem;
-      font-size: 1.1rem;
-      text-align: center;
-      color: #d63384;
-    }
+
     lottie-player {
       width: 40px;
       height: 40px;
       pointer-events: none;
+    }
+
+    #result {
+      margin-top: 1.5rem;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 12px;
+      background-color: #fff8fc;
+      box-shadow: 0 0 6px #ffe0ef;
+      color: #6b1c58;
     }
   </style>
 </head>
@@ -87,7 +109,6 @@
 
 <div class="container">
   <h2>🍭 ใบประมาณการอนุมัติแล้วจ้าาาาา 🌤️</h2>
-
   <form onsubmit="submitForm(event)">
     <label>📅 วันที่</label>
     <input type="date" name="วันที่" required>
@@ -135,7 +156,6 @@
       รีบส่งเลยนะ 💖 อย่าลืมแนบลิงก์!
     </button>
   </form>
-
   <div id="result"></div>
 </div>
 
@@ -154,14 +174,13 @@
 
     const formData = new FormData(form);
     fetch("https://script.google.com/macros/s/AKfycbyd0GT4AYaFkAWFpcop-1sviUN-i1I6j_U4nL8cPLzj-iEt-_fcUUVyVnywSeexrnL1/exec", {
-  method: "POST",
-  body: formData
-})
-  
+      method: "POST",
+      body: formData
+    })
     .then(res => res.json())
     .then(data => {
       if (data.status === "success") {
-        result.textContent = "🎉 ส่งเรียบร้อยแล้ว! ขอบคุณมากค่ะ 💕";
+        result.textContent = "🎉 ส่งเรียบร้อยแล้ว! ขอบคุณนะคะ 💖";
         sound.play();
         form.reset();
       } else {
@@ -177,6 +196,5 @@
     });
   }
 </script>
-
 </body>
 </html>
