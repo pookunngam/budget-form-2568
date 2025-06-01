@@ -2,206 +2,144 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
+  <title>อนุมัติแล้วค่ะ 🎉</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>🍭 ใบประมาณการอนุมัติแล้วจ้าาาาา 🌤️</title>
   <link href="https://fonts.googleapis.com/css2?family=Mali&display=swap" rel="stylesheet" />
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <style>
     body {
       font-family: 'Mali', sans-serif;
-      background: linear-gradient(-45deg, #fef6ff, #e6f7ff, #fff0f5, #f9fbe7);
-      background-size: 400% 400%;
-      animation: gradient 15s ease infinite;
-      padding: 2rem 1rem;
+      background: linear-gradient(120deg, #ffe8f8, #e6f7ff, #fef6e4);
+      background-size: 300% 300%;
+      animation: animateBG 15s ease infinite;
       margin: 0;
+      padding: 2rem 1rem;
     }
-
-    @keyframes gradient {
+    @keyframes animateBG {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
-
     .container {
-      max-width: 720px;
-      background: rgba(255, 255, 255, 0.96);
+      max-width: 700px;
       margin: auto;
+      background: rgba(255, 255, 255, 0.95);
       padding: 2rem;
-      border-radius: 18px;
-      box-shadow: 0 0 20px rgba(255, 192, 203, 0.2);
-      position: relative;
+      border-radius: 20px;
+      box-shadow: 0 0 12px rgba(255, 192, 203, 0.4);
     }
-
     h2 {
       text-align: center;
-      color: #e91e63;
+      color: #d63384;
       font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
-
     label {
-      display: block;
-      margin-top: 1rem;
       font-weight: bold;
+      margin-top: 1rem;
+      display: block;
       color: #6c3483;
     }
-
-    input, select, textarea {
+    input, select {
       width: 100%;
-      padding: 0.7rem;
-      margin-top: 0.4rem;
+      padding: 0.7rem 1rem;
+      margin-top: 0.3rem;
       border: 2px solid #fcd2e2;
       border-radius: 12px;
-      font-size: 1rem;
-      background: #fffafc;
+      background-color: #fffafc;
       font-family: 'Mali', sans-serif;
     }
-
-    textarea {
-      min-height: 60px;
-    }
-
     button {
-      margin-top: 2rem;
-      background: linear-gradient(to right, #ff9ac7, #f88abf);
+      background: linear-gradient(to right, #ff90bb, #ffa0cc);
       color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 0.8rem 1.2rem;
       border: none;
-      border-radius: 20px;
-      padding: 1rem;
-      font-size: 1.1rem;
-      cursor: pointer;
+      border-radius: 16px;
+      margin-top: 1.5rem;
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 0.5rem;
-      box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
     }
-
-    button:hover {
-      background: linear-gradient(to right, #ff7fb0, #fa94c6);
-      transform: scale(1.02);
-    }
-
     #result {
       text-align: center;
-      margin-top: 1.5rem;
-      font-size: 1rem;
-      color: #6b1c58;
-      background: #fff0fa;
-      padding: 1rem;
-      border-radius: 12px;
-    }
-
-    .checkbox-group label {
-      font-weight: normal;
-      display: block;
-      margin-top: 0.4rem;
-    }
-
-    .checkbox-group input[type="text"] {
-      margin-top: 0.3rem;
-      width: calc(100% - 20px);
-      padding: 0.5rem;
+      margin-top: 1rem;
+      font-weight: bold;
+      color: #5e125e;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>🍭 ใบประมาณการอนุมัติแล้วจ้าาาาา 🌤️</h2>
-
     <form onsubmit="submitForm(event)">
       <label>📅 วันที่</label>
       <input type="date" name="วันที่" required>
-
       <label>📄 เลขที่เอกสาร</label>
       <input type="text" name="เลขที่เอกสาร" required>
-
       <label>👩‍💼 กลุ่มงาน</label>
-      <select name="กลุ่มงาน" required>
-        <option value="" disabled selected hidden>-- เลือกกลุ่มงาน --</option>
+      <select name="กลุ่มงาน">
+        <option value="" disabled selected>เลือกกลุ่มงาน</option>
         <option value="กลุ่มบริหารงานวิชาการ">กลุ่มบริหารงานวิชาการ</option>
         <option value="กลุ่มบริหารงบประมาณ">กลุ่มบริหารงบประมาณ</option>
         <option value="กลุ่มบริหารงานทั่วไป">กลุ่มบริหารงานทั่วไป</option>
         <option value="กลุ่มบริหารงานบุคคล">กลุ่มบริหารงานบุคคล</option>
       </select>
-
       <label>💰 ประเภทงบประมาณ</label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="ประเภทงบประมาณ" value="เงินอุดหนุนสำหรับการจัดการเรียนการสอน"> เงินอุดหนุนสำหรับการจัดการเรียนการสอน</label>
-        <label><input type="checkbox" name="ประเภทงบประมาณ" value="เงินกิจกรรมพัฒนาคุณภาพผู้เรียน"> เงินกิจกรรมพัฒนาคุณภาพผู้เรียน</label>
-        <label><input type="checkbox" name="ประเภทงบประมาณ" value="เงินบำรุงการศึกษา"> เงินบำรุงการศึกษา
-          <input type="text" name="บำรุงการศึกษา_เพิ่มเติม" placeholder="ระบุเพิ่มเติม..." />
-        </label>
-        <label><input type="checkbox" name="ประเภทงบประมาณ" value="เงินรายได้"> เงินรายได้
-          <input type="text" name="เงินรายได้_เพิ่มเติม" placeholder="ระบุเพิ่มเติม..." />
-        </label>
-        <label><input type="checkbox" name="ประเภทงบประมาณ" value="เงินอื่นๆ"> เงินอื่นๆ
-          <input type="text" name="เงินอื่นๆ_เพิ่มเติม" placeholder="ระบุเพิ่มเติม..." />
-        </label>
-      </div>
-
+      <select name="ประเภทงบประมาณ">
+        <option value="" disabled selected>เลือกประเภทงบประมาณ</option>
+        <option value="เงินอุดหนุนสำหรับการจัดการเรียนการสอน">เงินอุดหนุนสำหรับการจัดการเรียนการสอน</option>
+        <option value="เงินกิจกรรมพัฒนาคุณภาพผู้เรียน">เงินกิจกรรมพัฒนาคุณภาพผู้เรียน</option>
+        <option value="เงินบำรุงการศึกษา">เงินบำรุงการศึกษา</option>
+        <option value="เงินรายได้">เงินรายได้</option>
+        <option value="เงินอื่นๆ">เงินอื่นๆ</option>
+      </select>
       <label>📌 โครงการ</label>
       <input type="text" name="โครงการ" required>
-
       <label>📝 กิจกรรม</label>
       <input type="text" name="กิจกรรม" required>
-
       <label>💵 งบประมาณที่ใช้</label>
       <input type="number" name="งบประมาณที่ใช้" required>
-
       <label>👤 ผู้รับผิดชอบ</label>
       <input type="text" name="ผู้รับผิดชอบ" required>
-
-      <label>📎 หมายเหตุ</label>
-      <textarea name="หมายเหตุ"></textarea>
-
       <label>📂 แนบลิงก์เอกสาร</label>
       <input type="url" name="เอกสาร" placeholder="https://..." required>
-
-      <button type="submit" id="submitBtn">
-        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_j1adxtyb.json" background="transparent" speed="1" loop autoplay></lottie-player>
-        รีบส่งเลยนะ 💖 อย่าลืมแนบลิงก์!
-      </button>
+      <button type="submit">📨 รีบส่งเลยนะ 💖 ยังมีอีกเย๊อะะะะ!</button>
     </form>
-
     <div id="result"></div>
   </div>
-
-  <audio id="dingSound" src="https://notificationsounds.com/storage/sounds/file-sounds-1153-just-saying.mp3" preload="auto"></audio>
 
   <script>
     function submitForm(e) {
       e.preventDefault();
-      const form = e.target;
-      const btn = document.getElementById("submitBtn");
       const result = document.getElementById("result");
-      const sound = document.getElementById("dingSound");
-
+      const btn = e.target.querySelector("button");
       btn.disabled = true;
-      btn.innerHTML = "⏳ กำลังส่งข้อมูล...";
+      btn.innerText = "⏳ กำลังส่ง...";
 
-      const formData = new FormData(form);
+      const formData = new FormData(e.target);
 
-      fetch("https://script.google.com/macros/s/AKfycbz448CNg9BtXON5mMWGFrifLAB3zMSRhQOlm03n3a7RaRs56dHKKnj9U7QBtF8b6s3p/exec", {
+      fetch("https://script.google.com/macros/s/AKfycbzJ4z1oLDncM2iqVHHpCGD5zHI-rGuc5GaI9_49dsimfMK5Aqx7a73dB4Uo1hRl3VmW/exec", {
         method: "POST",
         body: formData
       })
       .then(res => res.json())
       .then(data => {
         if (data.status === "success") {
-          result.textContent = "🎉 ส่งเรียบร้อยแล้ว! ขอบคุณมากค่ะ 💖";
-          sound.play();
-          form.reset();
+          result.textContent = "🎉 ส่งเรียบร้อยแล้ว! มีอีกค่ะะะะะะ";
+          new Audio("https://notificationsounds.com/storage/sounds/file-sounds-1153-just-saying.mp3").play();
+          e.target.reset();
         } else {
-          result.textContent = "❌ เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้งค่ะ";
+          result.textContent = "❌ เกิดข้อผิดพลาด";
         }
         btn.disabled = false;
-        btn.innerHTML = `รีบส่งเลยนะ 💖 อย่าลืมแนบลิงก์!`;
+        btn.innerText = "📨 รีบส่งเลยนะ 💖 ยังมีอีกเย๊อะะะะ!";
       })
       .catch(() => {
-        result.textContent = "❌ ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้ค่ะ";
+        result.textContent = "❌ ไม่สามารถเชื่อมต่อเซิร์ฟเวอร์ได้ค่ะ";
         btn.disabled = false;
-        btn.innerHTML = `รีบส่งเลยนะ 💖 อย่าลืมแนบลิงก์!`;
+        btn.innerText = "📨 รีบส่งเลยนะ 💖 ยังมีอีกเย๊อะะะะ!";
       });
     }
   </script>
